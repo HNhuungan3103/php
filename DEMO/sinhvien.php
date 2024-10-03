@@ -14,7 +14,9 @@
 <body>
 
     <div class="container">
-        <h2 align="center">QUẢN LÝ THÔNG TIN SINH VIÊN</h2>
+
+        <h2 align="center" class="mt-1">QUẢN LÝ THÔNG TIN SINH VIÊN</h2>
+
 
         <a class="btn btn-primary mb-3" href="form_sinhvien.php">Thêm mới sinh viên</a>&nbsp;
         <a class="btn btn-primary mb-3" href="form_lop.php">Thêm mới lớp</a>

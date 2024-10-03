@@ -31,35 +31,49 @@
 	$result = $conn->query($sql);
 	
 	if ($result->num_rows > 0) {
-	  // output data of each row
-	  echo "<table class = 'table table-hover mt-3'>";
-	  echo "<tr>
-	  <th>Mã lớp</th>
-	  <th>Tên lớp</th>
-	  <th>Sửa</th>
-	  <th>Xóa</th>
-	  </tr>";
-		while($row = $result->fetch_assoc()) {
-			echo "<tr>";
-			echo "<td>".$row["maLop"]."</td>";
-			echo "<td>".$row["tenLop"]."</td>";
-			echo "<td>"
-			?>
+		echo "<table class = 'table table-hover mt-3'>";
+		echo "<tr>
+		<th>Mã lớp</th>
+		<th>Tên lớp</th>
+		<th>Sửa</th>
+		<th>Xóa</th>
+		<th>In danh sách lớp</th>
+		</tr>";
+  
+	while($row = $result->fetch_assoc()) {
+		echo "<tr>";
+		echo "<td>".$row["maLop"]."</td>";
+		echo "<td>".$row["tenLop"]."</td>";
+		
+		
+    	echo "<td>";
+    	?>
         <a href="sua_lop.php?ma=<?php echo $row["maLop"];?>">Sửa</a>
         <?php
-			echo "</td>";
-			echo "<td>"
-			?>
+    	echo "</td>";
+    
+
+    	echo "<td>";
+    	?>
         <a onclick="return confirm('Có thực sự muốn xóa không?')"
             href="xoa_lop.php?ma=<?php echo $row["maLop"];?>">Xóa</a>
         <?php
-			echo "</td>";
-			echo "</tr>";
-		}
-	echo "</table>";
-	} else {
-	  echo "0 results";
-	}
+    	echo "</td>";
+    
+
+    	echo "<td>";
+    	?>
+        <a href="in_danhsachlop.php?ma=<?php echo $row['maLop']; ?>">In</a>
+        <?php
+    	echo "</td>";
+    	echo "</tr>";
+  }
+  
+  echo "</table>";
+} else {
+  echo "0 results";
+}
+
 	$conn->close();
   ?>
     </div>
